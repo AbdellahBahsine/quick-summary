@@ -23,7 +23,7 @@ const MobileNav = () => {
                 <div className="w-full h-[3px] bg-blue-600"></div>
             </div>
 
-            <div className={`${isOpen ? 'right-[0px]' : "right-[-100vw]"} flex-col gap-4 bg-white absolute top-[70px] w-full py-6 px-6 border-b border-l border-r border-gray-200 transition-top duration-500 ease-in-out`}>
+            <div className={`${isOpen ? 'right-[0px]' : "right-[-100vw]"} flex-col gap-4 bg-white absolute top-[80px] w-full py-6 px-6 border-b border-l border-r border-gray-200 transition-top duration-500 ease-in-out`}>
                 <nav className="flex flex-col items-start gap-4 font-[300]">
                     <Link href="/" className={`${pathname === '/' ? "font-bold" : ""}`}>Home</Link>
                     <Link href="/summaries" className={`${pathname === '/summaries' ? "font-bold" : ""}`}>Summaries</Link>
