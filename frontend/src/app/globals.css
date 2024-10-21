@@ -35,6 +35,11 @@ main {
   flex: 1;
 }
 
+.grid-cols-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
