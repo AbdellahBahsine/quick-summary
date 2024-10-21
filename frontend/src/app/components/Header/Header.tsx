@@ -10,8 +10,8 @@ const Header = () => {
     const pathname = usePathname();
 
     return (
-        <header className="min-h-[70px] h-[70px] border-b border-gray-200">
-            <div className="h-full flex items-center justify-between px-6 md:px-10">
+        <header className="min-h-[70px] h-[70px] border-b border-gray-200 px-6 md:px-10 flex justify-center">
+            <div className="h-full flex items-center justify-between max-w-[1545px] w-full">
                 <Link href="/">Quick<span className="font-bold text-blue-600">Summary</span></Link>
                 <div className="h-full items-center gap-4 hidden md:flex">
                     <nav className="h-full flex items-center font-[300]">

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${roboto.variable} antialiased overflow-hidden`}
+        className={`${inter.variable} ${roboto.variable} antialiased overflow-x-hidden`}
       >
         <Header />
         <main>
