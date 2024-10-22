@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
+import { UserProvider } from "./context/UserContext";
+import { SummariesProvider } from "./context/SummariesContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,10 +32,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${roboto.variable} antialiased overflow-x-hidden`}
       >
-        <Header />
-        <main>
-          {children}
-        </main>
+        <UserProvider>
+          <Header />
+          <main>
+            <SummariesProvider>
+              {children}
+            </SummariesProvider>
+          </main>
+        </UserProvider>
       </body>
     </html>
   );

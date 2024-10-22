@@ -1,3 +1,6 @@
+'use client';
+
+import WithUnAuth from "../components/WithUnAuth/WithUnAuth";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 
 
@@ -11,4 +14,4 @@ const RegisterPage = () => {
     )
 }
 
-export default RegisterPage;
+export default WithUnAuth(RegisterPage);

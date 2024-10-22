@@ -1,9 +1,12 @@
 'use client';
 
+import { useUser } from "@/app/context/UserContext";
 import Link from "next/link";
 import { useState } from "react";
 
 const RegisterForm = () => {
+
+    const { register } = useUser();
 
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -15,10 +18,20 @@ const RegisterForm = () => {
         console.log(email, username, password, confirmPassword);
     }
 
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+          await register(email, username, password);
+        } catch (error) {
+          console.error('Registration failed');
+        }
+    };
+
     return (
         <div className="border border-gray-300 p-8 w-[460px] mt-32 rounded">
             <h1 className="text-4xl font-bold mb-6"><span className="text-blue-600"> Sign Up</span> <span className="font-normal text-sm">and start making summaries</span></h1>
-            <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-8" onSubmit={handleRegister}>
                 <div className="flex flex-col gap-2">
                     <label htmlFor="username" className="text-sm">E-mail</label>
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="border border-gray-300 p-4" />

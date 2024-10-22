@@ -3,8 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LoggedInUser from "./components/LoggedInUser/LoggedInUser";
+import GuestUser from "./components/GuestUser/GuestUser";
+import { useUser } from "@/app/context/UserContext";
 
 const DesktopNav = () => {
+
+    const { isLoggedIn } = useUser();
 
     const pathname = usePathname();
 
@@ -23,7 +27,13 @@ const DesktopNav = () => {
                 </ul>
             </nav>
 
-            <LoggedInUser />
+            {
+                isLoggedIn() ? (
+                    <LoggedInUser />
+                ) : (
+                    <GuestUser />
+                )
+            }
             
         </div>
     )

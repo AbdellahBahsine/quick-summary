@@ -1,3 +1,6 @@
+'use client';
+
+import WithUnAuth from "../components/WithUnAuth/WithUnAuth";
 import LoginForm from "./components/LoginForm/LoginForm";
 
 const LoginPage = () => {
@@ -10,4 +13,4 @@ const LoginPage = () => {
     );
 }
 
-export default LoginPage;
+export default WithUnAuth(LoginPage);
