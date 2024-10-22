@@ -1,3 +1,6 @@
+'use client';
+
+import WithAuth from "@/app/components/WithAuth/WithAuth";
 import NewSummaryForm from "./components/NewSummaryForm/NewSummaryForm";
 
 const NewSummaryPage = () => {
@@ -11,4 +14,4 @@ const NewSummaryPage = () => {
     );
 }
 
-export default NewSummaryPage;
+export default WithAuth(NewSummaryPage);

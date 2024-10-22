@@ -1,4 +1,8 @@
+'use client';
+
+import Link from "next/link";
 import MySummaries from "./components/MySummaries/MySummaries";
+import WithAuth from "../components/WithAuth/WithAuth";
 
 const MySummariesPage = () => {
     return (
@@ -6,7 +10,7 @@ const MySummariesPage = () => {
             <div className="max-w-[1545px] w-full">
                 <div className="flex justify-between items-center my-4">
                     <h1 className="text-xl font-bold">My Summaries</h1>
-                    <button className="bg-blue-500 text-white p-4 rounded">Create new summary</button>
+                    <Link href="/my-summaries/new-summary" className="bg-blue-500 text-white p-4 rounded"><button>Create new summary</button></Link>
                 </div>
                 <MySummaries />
             </div>
@@ -14,4 +18,4 @@ const MySummariesPage = () => {
     );
 }
 
-export default MySummariesPage;
+export default WithAuth(MySummariesPage);
