@@ -1,27 +1,16 @@
 import Summary from "@/app/components/Summary/Summary";
+import { useSummaries } from "@/app/context/SummariesContext";
+import { useUser } from "@/app/context/UserContext";
+import { useEffect } from "react";
 
 const Summaries = () => {
 
-    const summaries = [
-        {
-            id: 1,
-            title: "The subtle art of not giving a f**k",
-            author: "Mark Manson",
-            description: "This book is about how to prioritize what you care about and how to stop caring about things that don't matter."
-        },
-        {
-            id: 2,
-            title: "The subtle art of not giving a f**k",
-            author: "Mark Manson",
-            description: "This book is about how to prioritize what you care about and how to stop caring about things that don't matter."
-        },
-        {
-            id: 3,
-            title: "The subtle art of not giving a f**k",
-            author: "Mark Manson",
-            description: "This book is about how to prioritize what you care about and how to stop caring about things that don't matter."
-        },
-    ];
+    const { fetchSummaries, summaries} = useSummaries();
+    const { user } = useUser();
+
+    useEffect(() => {
+        fetchSummaries();
+    }, [user]);
 
     return (
         <div className="grid-cols-auto-fit gap-4">

@@ -1,3 +1,6 @@
+'use client';
+
+import WithAuth from "../components/WithAuth/WithAuth";
 import Header from "./components/Header/Header";
 import Summaries from "./components/Summaries/Summaries";
 
@@ -12,4 +15,4 @@ const SummariesPage = () => {
     );
 };
 
-export default SummariesPage;
+export default WithAuth(SummariesPage);

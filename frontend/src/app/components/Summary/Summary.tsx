@@ -5,7 +5,7 @@ import { useState } from "react";
 import RemoveSummary from "./components/RemoveSummary/RemoveSummary";
 
 
-const Summary : React.FC<{ id: number, title: string, author: string, description: string, isModifiable: boolean }> = ({ id, title, author, description, isModifiable }) => {
+const Summary : React.FC<{ id: string, title: string, author: string, description: string, isModifiable: boolean }> = ({ id, title, author, description, isModifiable }) => {
 
     const [isRemove, setIsRemove] = useState(false);
 
@@ -29,7 +29,7 @@ const Summary : React.FC<{ id: number, title: string, author: string, descriptio
                 </div>
 
             {
-                isRemove && <RemoveSummary setIsRemove={setIsRemove} />}
+                isRemove && <RemoveSummary setIsRemove={setIsRemove} id={id} />}
         </>
     );
 }
