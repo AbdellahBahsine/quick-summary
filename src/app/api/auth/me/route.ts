@@ -18,8 +18,10 @@ export async function GET(req: Request) {
   try {
     const decoded = jwt.verify(token, JWT_SECRET) as DecodedToken;
 
+    const userId = parseInt(decoded.userId, 10);
+
     const user = await prisma.user.findUnique({
-      where: { id: decoded.userId },
+      where: { id: userId },
       select: { id: true, username: true, email: true },
     });
 

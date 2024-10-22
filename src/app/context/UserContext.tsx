@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
@@ -37,10 +37,6 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   
   const router = useRouter();
 
-  useEffect(() => {
-      fetchUser();
-  }, []);
-
   const refreshAccessToken = async () => {
     try {
       const response = await axios.post('/api/auth/refresh');
@@ -57,6 +53,9 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const isLoggedIn = () => {
+
+    if (typeof window === 'undefined') return false;
+
     const token = localStorage.getItem('accessToken');
     if (!token) return false;
   
@@ -81,13 +80,13 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch {}
   };
 
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     try {
       const data = await makeAuthenticatedRequest('/api/auth/me');
 
       setUser(data.user);
     } catch {}
-  };
+  }, []);
 
   const register = async (email: string, username: string, password: string) => {
     try {
@@ -194,6 +193,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
 
   if (loading) {
     return <Spinner />;

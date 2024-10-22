@@ -17,12 +17,14 @@ export async function GET(request: Request) {
     const validPageNumber = Math.max(1, pageNumber);
     const validLimitNumber = Math.max(1, limitNumber);
 
+    const userId = parseInt(user.userId, 10);
+
     const total = await prisma.summary.count({
-      where: { userId: user.userId },
+      where: { userId },
     });
 
     const summaries = await prisma.summary.findMany({
-      where: { userId: user.userId },
+      where: { userId},
       skip: (validPageNumber - 1) * validLimitNumber,
       take: validLimitNumber,
     });
@@ -39,7 +41,7 @@ export async function POST(request: Request) {
   
     const { title, author, description, content } = await request.json();
   
-    const userId = user.userId;
+    const userId = parseInt(user.userId, 10);
   
     try {
       const newSummary = await prisma.summary.create({

@@ -18,7 +18,7 @@ const WithUnAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) 
       } else {
         setLoading(false);
       }
-    }, [router]);
+    }, [router, isLoggedIn]);
 
     if (loading) {
         return <Spinner />;
