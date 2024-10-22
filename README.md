@@ -18,6 +18,8 @@
 
 **Database:** PostgreSQL for storing user information and book summaries.
 
+**ORM:** Prisma for database interaction.
+
 **Styling:** TailwindCSS for responsive and modern design.
 
 **Docker:** For containerization of the app.
