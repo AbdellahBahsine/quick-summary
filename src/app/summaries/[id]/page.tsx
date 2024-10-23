@@ -13,7 +13,7 @@ const SummaryDetails = () => {
 
     useEffect(() => {
         fetchSummaryById(id);
-    }, [fetchSummaryById, id]);
+    }, [id]);
 
     return (
         <div className="px-6 md:px-10 flex justify-center">
