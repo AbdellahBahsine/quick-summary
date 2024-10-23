@@ -1,4 +1,14 @@
 services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
   postgres:
     image: postgres:15
     container_name: my_postgres

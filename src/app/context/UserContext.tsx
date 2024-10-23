@@ -107,7 +107,45 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       router.push('/login');
  
-    } catch {}
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response) {
+          const errorMessage = error.response.data?.error || 'Registration failed';
+          toast.error(errorMessage, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.error('Network error, please try again later.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      } else {
+        toast.error('An unexpected error occurred. Please try again later.', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    }
 
     setLoading(false);
   };
