@@ -1,5 +1,7 @@
 **QuickSummary** is a web application that allows users to log in and create concise summaries of their favorite books, save them in their account and see other users summaries.
 
+- *Live view:* https://quick-summary.vercel.app/
+
 ## Features
 
 **User Authentication:** Secure login and registration system for users using JWT.
@@ -36,7 +38,19 @@ git clone git@github.com:AbdellahBahsine/quick-summary.git
 ```bash
 cd quick-summary
 ```
-3. Create a .env file in the root directory and add the necessary environment variables (database URI, JWT secret, and JWT refresh secret).
+3. Create a .env file in the root directory and add the necessary environment variables: (database URI, JWT secret, and JWT refresh secret).
+
+- **DATABASE_URL:** (ex: postgres://postgres:abdellah123@postgres:5432/quicksummarydb)
+
+- **REFRESH_TOKEN_SECRET:** XXX
+
+- **JWT_SECRET:** XXX
+
+- **POSTGRES_USER=** (ex: postgres)
+  
+- **POSTGRES_PASSWORD=** (ex: abdellah123)
+  
+- **POSTGRES_DB=** (ex: quicksummarydb)
 
 4. Build and run the Docker containers:
 ```bash
