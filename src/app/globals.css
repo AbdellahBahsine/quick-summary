@@ -7,15 +7,15 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body, html {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -39,6 +39,22 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   grid-template-rows: auto;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-auto-fit {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}
+
+@media screen and (max-height: 1100px) {
+  .padding-top-height {
+    padding-top: 100px;
+  }
+
+  .padding-top-height-img {
+    padding-top: 30px;
+  }
 }
 
 @layer utilities {
