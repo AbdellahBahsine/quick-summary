@@ -7,8 +7,6 @@ services:
       DATABASE_URL: ${DATABASE_URL}
     depends_on:
       - postgres
-    volumes:
-      - .:/app
   postgres:
     image: postgres:15
     container_name: my_postgres
