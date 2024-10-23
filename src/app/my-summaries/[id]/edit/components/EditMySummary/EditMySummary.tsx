@@ -19,7 +19,7 @@ const EditMySummary = () => {
 
     useEffect(() => {
         fetchSummaryById(id[0]);
-    }, [fetchSummaryById, id]);
+    }, [id]);
 
     useEffect(() => {
         if (summary) {

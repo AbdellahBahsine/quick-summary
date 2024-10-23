@@ -13,7 +13,7 @@ const RemoveSummary: React.FC<{ id: string, setIsRemove: React.Dispatch<React.Se
     }
 
     return (
-        <div className="fixed top-0 left-0 h-screen w-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center">
+        <div className="fixed top-0 left-0 h-screen w-screen bg-[rgba(0,0,0,0.5)] flex justify-center items-center z-20">
             <div className="h-200 w-300 bg-white p-4 rounded">
                 <p className="mb-4">Are you sure you want to remove this summary?</p>
                 <div className="flex justify-end gap-4">

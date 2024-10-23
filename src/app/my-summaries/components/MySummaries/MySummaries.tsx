@@ -17,7 +17,7 @@ const MySummaries = () => {
 
     useEffect(() => {
         fetchMySummaries(page, limit, setTotal);
-    }, [page, fetchMySummaries]);
+    }, [page]);
 
     useEffect(() => {
         setTotalPages(Math.ceil(total / limit));
