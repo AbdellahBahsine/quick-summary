@@ -3,7 +3,7 @@
 import { useUser } from "@/app/context/UserContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const MobileNav = () => {
@@ -11,12 +11,23 @@ const MobileNav = () => {
     const { isLoggedIn, logout } = useUser();
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isUser, setIsUser] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
     }
 
     const pathname = usePathname();
+
+    useEffect(() => {
+        setIsUser(isLoggedIn());
+        setIsLoaded(true);
+    }, [])
+
+    if (!isLoaded) {
+        return null;
+    }
 
     return (
         <div className="md:hidden">
@@ -30,7 +41,7 @@ const MobileNav = () => {
                 <nav className="flex items-center justify-end gap-4 font-[300]">
                     <Link href="/" className={`${pathname === '/' ? "font-bold" : ""}`}>Home</Link>
                     {
-                        isLoggedIn() ? (
+                        isUser ? (
                             <div className="flex gap-4">
                                 <Link href="/summaries" className={`${pathname === '/summaries' ? "font-bold" : ""}`}>Summaries</Link>
                                 <Link href="/my-summaries" className={`${pathname === '/my-summaries' ? "font-bold" : ""}`}>My Summaries</Link>
