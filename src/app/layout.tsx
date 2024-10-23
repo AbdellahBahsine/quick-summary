@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${roboto.variable} antialiased overflow-x-hidden`}
+        className={`${inter.variable} ${roboto.variable} antialiased`}
       >
         <ToastProvider>
           <UserProvider>
