@@ -38,19 +38,24 @@ git clone git@github.com:AbdellahBahsine/quick-summary.git
 ```bash
 cd quick-summary
 ```
+
 3. Create a .env file in the root directory and add the necessary environment variables: (database URI, JWT secret, and JWT refresh secret).
 
-- **DATABASE_URL:** (ex: postgres://postgres:abdellah123@postgres:5432/quicksummarydb)
+```bash
+touch .env
+```
 
-- **REFRESH_TOKEN_SECRET:** XXX
+- **DATABASE_URL:** postgres://postgres:abdellah123@postgres:5432/quicksummarydb
 
-- **JWT_SECRET:** XXX
+- **REFRESH_TOKEN_SECRET=** XXX
 
-- **POSTGRES_USER=** (ex: postgres)
+- **JWT_SECRET=** XXX
+
+- **POSTGRES_USER=** postgres
   
-- **POSTGRES_PASSWORD=** (ex: abdellah123)
+- **POSTGRES_PASSWORD=** abdellah123
   
-- **POSTGRES_DB=** (ex: quicksummarydb)
+- **POSTGRES_DB=** quicksummarydb
 
 4. Build and run the Docker containers:
 ```bash
