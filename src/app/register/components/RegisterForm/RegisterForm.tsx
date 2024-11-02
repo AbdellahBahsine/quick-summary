@@ -45,7 +45,7 @@ const RegisterForm = () => {
                     <label htmlFor="password" className="text-sm">Confirm Password</label>
                     <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="border border-gray-300 p-4" />
                 </div>
-                <button type="submit" className="bg-blue-600 text-white p-4 rounded">Log in</button>
+                <button type="submit" className="bg-blue-600 text-white p-4 rounded">Sign up</button>
                 <p className="text-sm text-gray-500">Already have an account? <Link href="/login" className="text-blue-600">Log in</Link></p>
             </form>
         </div>
